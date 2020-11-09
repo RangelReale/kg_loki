@@ -1,6 +1,7 @@
 from typing import Optional, Any, Mapping, Sequence
 
 from kubragen.configfile import ConfigFile
+from kubragen.data import Data
 from kubragen.kdatahelper import KDataHelper_Volume
 from kubragen.option import OptionDef, OptionDefFormat
 from kubragen.options import Options
@@ -78,5 +79,27 @@ class LokiOptions(Options):
                 'resources': {
                     'statefulset': OptionDef(allowed_types=[Mapping]),
                 }
+            },
+        }
+
+
+class LokiOptions_Default_Resources_Statefulset(Data):
+    """
+    Default option value for:
+
+    ```kubernetes.resources.statefulset```
+    """
+    def is_enabled(self) -> bool:
+        return True
+
+    def get_value(self) -> Any:
+        return {
+            'requests': {
+                'cpu': '100m',
+                'memory': '128Mi'
+            },
+            'limits': {
+                'cpu': '200m',
+                'memory': '256Mi'
             },
         }
