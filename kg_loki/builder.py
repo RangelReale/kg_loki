@@ -72,13 +72,13 @@ class LokiBuilder(Builder):
 
     SOURCE_NAME = 'kg_Loki'
 
-    BUILD_CONFIG: TBuild = 'config'
-    BUILD_SERVICE: TBuild = 'service'
+    BUILD_CONFIG = TBuild('config')
+    BUILD_SERVICE = TBuild('service')
 
-    BUILDITEM_CONFIG_SECRET: TBuildItem = 'config-secret'
-    BUILDITEM_SERVICE_HEADLESS: TBuildItem = 'service-headless'
-    BUILDITEM_SERVICE: TBuildItem = 'service'
-    BUILDITEM_STATEFULSET: TBuildItem = 'statefulset'
+    BUILDITEM_CONFIG_SECRET = TBuildItem('config-secret')
+    BUILDITEM_SERVICE_HEADLESS = TBuildItem('service-headless')
+    BUILDITEM_SERVICE = TBuildItem('service')
+    BUILDITEM_STATEFULSET = TBuildItem('statefulset')
 
     def __init__(self, kubragen: KubraGen, options: Optional[LokiOptions] = None):
         super().__init__(kubragen)
